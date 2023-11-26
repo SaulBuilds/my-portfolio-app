@@ -3,6 +3,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { SessionProvider } from 'next-auth/react';
 import {
   arbitrum,
   goerli,
@@ -42,11 +43,13 @@ const wagmiConfig = createConfig({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
+   <SessionProvider session={pageProps.session}>
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>
+    </SessionProvider> 
   );
 }
 

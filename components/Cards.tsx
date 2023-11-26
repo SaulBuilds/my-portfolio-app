@@ -24,7 +24,7 @@ export const HomeCards = () => {
             Take a look at my CV and Work experience. Call or email me to
             schedule an appointment for an interview and connect towards mutual
             goals. click below to find out more...
-            <p></p>
+            
           </Typography>
           <Button variant="contained" sx={{ mt: 2 }}>
             Check Out CV
