@@ -1,29 +1,90 @@
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
 
-## Getting Started
 
+## Getting Started from scratch...
+
+npm init @rainbow-me/rainbowkit@latest
+# or
+pnpm create @rainbow-me/rainbowkit@latest
+# or
+yarn create @rainbow-me/rainbowkit
 First, run the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting Started from the repo...
+# Employable Dev - Resume Editor
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project Overview
+Employable Dev is a web application designed to assist users in creating, editing, and managing their professional resumes. Built with Next.js, React, and incorporating Test-Driven Development (TDD) with Jest, this project aims to provide a user-friendly interface for resume management.
 
-## Learn More
+## Features
+- **Resume Creation**: Users can create a new resume from scratch.
+- **Resume Editing**: Existing resumes can be edited and updated.
+- **User Authentication**: Secure login system with GitHub authentication.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
 
-To learn more about this stack, take a look at the following resources:
+## Getting Started
 
-- [RainbowKit Documentation](https://rainbowkit.com) - Learn how to customize your wallet connection flow.
-- [wagmi Documentation](https://wagmi.sh) - Learn how to interact with Ethereum.
-- [Next.js Documentation](https://nextjs.org/docs) - Learn how to build a Next.js application.
+### Prerequisites
+- Node.js (v12.0 or higher)
+- npm or Yarn package manager
 
-You can check out [the RainbowKit GitHub repository](https://github.com/rainbow-me/rainbowkit) - your feedback and contributions are welcome!
+### Installation
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/employable-dev.git
 
-## Deploy on Vercel
+Navigate to the project directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+cd employable-dev
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Install dependencies:
+
+Using npm:
+npm install
+
+Using Yarn:
+yarn install
+
+Running the Application
+Start the development server:
+Using npm:
+npm run dev
+
+Using Yarn:
+yarn dev
+
+Open http://localhost:3000 in your browser to view the application.
+Testing
+This project uses Jest and React Testing Library for testing.
+
+Run tests:
+
+Using npm:
+npm test
+
+Using Yarn:
+yarn test
+
+Project Structure
+pages/: Contains the Next.js pages including index.tsx, _app.tsx, api/, and resume/.
+components/: React components like ResumeEditor, AuthOptions, etc.
+hooks/: Custom React hooks, e.g., useAuth.
+types/: TypeScript type definitions for the application.
+tests/: Test files for the application components and logic.
+Contributing
+We welcome contributions to the Employable Dev project. Please read our contributing guidelines before submitting your contributions.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgements
+Next.js
+React
+Jest and React Testing Library
+Saul Loveman © The Emloyable Dev
+
+
+
