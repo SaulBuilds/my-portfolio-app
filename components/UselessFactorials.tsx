@@ -19,7 +19,7 @@ export const UseLessFactorials: React.FC = () => {
     <div className="sample-component">
       <Card>
         <CardContent>
-          <Typography variant="h5">Factorial Demo</Typography>
+          <Typography variant="h5">useless Factorials</Typography>
           <Typography variant="body2">
             Current Factorial: {factorial}
           </Typography>
