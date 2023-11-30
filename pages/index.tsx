@@ -12,6 +12,7 @@ import ResumeViewer from '../components/specific/ResumeViewer';
 import GreetingCard from '../components/Card'; // Import the GreetingCard component
 import { Container, Button, CircularProgress } from '@mui/material';
 import ResumeManagement from '../components/specific/ResumeEditor/ResumeManagement';
+import { UseLessFactorials } from '../components/UselessFactorials';
 
 const Home = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -57,6 +58,7 @@ if (isLoading) {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <AuthOptions />
+      <UseLessFactorials />
 
 {!isUserAuthenticated && (
   <GreetingCard />

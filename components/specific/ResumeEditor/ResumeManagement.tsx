@@ -28,6 +28,7 @@ const ResumeManagement = () => {
     
         fetchResumes();
     }, []);
+    
     const handleResumeSaved = (id: number) => {
         setResumeId(id);
         setIsResumeEditorOpen(false);

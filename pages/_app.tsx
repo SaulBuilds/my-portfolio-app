@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <SessionProvider session={pageProps.session}>
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
+        
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>
