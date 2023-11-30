@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth';
+import { JWT } from "next-auth/jwt";
 import GitHubProvider from 'next-auth/providers/github'
 
 declare module "next-auth" {
@@ -9,11 +10,17 @@ declare module "next-auth" {
 
 export default NextAuth({
   providers: [
+    // // LinkedIn OAuth 2.0 provider
+    // Providers.LinkedIn({
+    //   clientId: process.env.LINKEDIN_CLIENT_ID,
+    //   clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+    // }),
+    // GitHub OAuth 2.0 provider
     GitHubProvider({
         clientId: process.env.GITHUB_CLIENT_ID || "defaultClientId",
         clientSecret: process.env.GITHUB_CLIENT_SECRET || "defaultClientSecret",
     }),
-
+    // Add other providers as needed
   ],
   jwt: {
     secret: process.env.JWT_SECRET,

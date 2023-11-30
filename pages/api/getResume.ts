@@ -1,5 +1,6 @@
-import { sql } from "@vercel/postgres"; 
-import type { NextApiRequest, NextApiResponse } from "next";
+// pages/api/getResume.ts
+import { sql } from '@vercel/postgres';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
     req: NextApiRequest,
@@ -15,20 +16,21 @@ export default async function handler(
     try {
         let resumes;
         if (resumeId) {
-            // fetch a specific Resume
-            const resumeResult = await sql `SELECT * FROM resumes WHERE id = ${resumeId}`;
+            // Fetch a specific resume
+            const resumeResult = await sql`SELECT * FROM resumes WHERE id = ${resumeId}`;
             resumes = resumeResult.rows;
-        }else {
-            // fetch all Resumes
-            const resumeResult = await sql `SELECT * FROM resumes`;
-            resumes =resumeResult.rows;
+        } else {
+            // Fetch all resumes
+            const resumeResult = await sql`SELECT * FROM resumes`;
+            resumes = resumeResult.rows;
         }
+
         // Fetch subsections for each resume
         for (const resume of resumes) {
             const educationResult = await sql`SELECT * FROM education WHERE resume_id = ${resume.id}`;
             resume.education = educationResult.rows;
 
-            const workExperienceResult = await sql`SELECT + * FROM certification where resume_id = ${resume.id}`;
+            const workExperienceResult = await sql`SELECT * FROM work_experience WHERE resume_id = ${resume.id}`;
             resume.workExperience = workExperienceResult.rows;
 
             const certificationsResult = await sql`SELECT * FROM certifications WHERE resume_id = ${resume.id}`;
@@ -39,8 +41,8 @@ export default async function handler(
         }
 
         res.status(200).json(resumes);
-        } catch (error) {
-            console.log("Error in getResumes", error);
-            res.status(500).send({ message: "An error occurred while trying to retrieve the resumes." });
+    } catch (error) {
+        console.error('Error fetching resume', error);
+        res.status(500).json({ error: 'Error fetching resume' });
     }
 }

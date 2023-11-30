@@ -9,7 +9,6 @@ export type Resume = {
         linkedIn?: string;
         website?: string;
     };
-    
     education: Education[];
     workExperience: WorkExperience[];
     skills: string[];

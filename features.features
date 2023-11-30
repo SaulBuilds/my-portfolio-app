@@ -1,0 +1,40 @@
+ As a user,
+  I want to login securely,
+  So that I can view the potential hires contact info
+
+  Scenario: viewing resume while not logged in
+    Given I am a not logged-in user
+    When I view the owners resume 
+    Then I shouldn't be able to see any contact info
+
+  Scenario: viewing resume while logged in
+    Given I logged in with oauth
+    When I view the owners resume
+    Then I should be able to see there contact info
+
+
+as an admin,
+  I want to login using web3,
+  so that I can have secure access to my admin panel
+
+  Scenario: loggin in with web3 wallet
+  given that I am the admin
+  when I go to login with my credentials
+  then I should be able to add to or edit my list resumes
+
+  Scenario: unauthorized log in attempt
+  given that the user is not the admin
+  when they try and log in with their credentials
+  then they should not be allowed to access the admin panel
+
+  Scenario: admin is on the wrong chain
+  given that the admin is logged in on the wrong chain
+  when they try and edit the resumes
+  then they should not see a list of resumes or editor button 
+
+  Scenario: admin is already logged in on the correct chain with the proper key
+  given that the admin is on the correct chain and has the admin key
+  when they click on the edit button 
+  then they should see a modal to add or edit text content
+
+

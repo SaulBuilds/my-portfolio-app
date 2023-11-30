@@ -12,6 +12,13 @@
   align-items: center;
 }
 
+.logo {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  justify-content: left;
+  align-items: left;
+}
 .footer {
   display: flex;
   flex: 1;
@@ -92,6 +99,10 @@
   margin: 0;
   font-size: 1.2rem;
   line-height: 1.5;
+}
+
+.card-row {
+  flex-direction: row;
 }
 
 @media (max-width: 600px) {
