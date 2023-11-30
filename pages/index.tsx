@@ -13,6 +13,7 @@ import GreetingCard from '../components/Card'; // Import the GreetingCard compon
 import { Container, Button, CircularProgress } from '@mui/material';
 import ResumeManagement from '../components/specific/ResumeEditor/ResumeManagement';
 import { UseLessFactorials } from '../components/UselessFactorials';
+import { ChangeOfGaurd } from '../components/specific/ResumeEditor/ChangeOfGaurd';
 
 const Home = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -59,6 +60,7 @@ if (isLoading) {
       </Head>
       <AuthOptions />
       <UseLessFactorials />
+   
 
 {!isUserAuthenticated && (
   <GreetingCard />
@@ -73,8 +75,10 @@ if (isLoading) {
     <Button onClick={handleOpenEditor} sx={{ color: 'black' }} variant="contained">
       Create or Edit Your Resume
     </Button>
+    <ChangeOfGaurd />
     {isEditorOpen && (
       <ResumeManagement />
+      
     )}
   </>
 )}

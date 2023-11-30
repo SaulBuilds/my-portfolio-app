@@ -1,15 +1,21 @@
 //hooks/useAuth.ts
 
 import { useState, useEffect } from 'react';
-import { useAccount, useContractRead, useNetwork } from 'wagmi';
 import { useSession } from 'next-auth/react';
 import { AdminSetterABI } from '../smartContracts/ApplicationBinaryInterfaces/adminSetterABI'; 
+import { 
+    useAccount, 
+    useContractRead, 
+    useNetwork, 
+    useContractWrite 
+} from 'wagmi';
+
 
 const contractAddress = '0x6b3fd5F8DdEe40711AE3E6b387f64EE727DDc1a1'; 
 
 const useAuth = () => {
     const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
-    const { address } = useAccount();
+    const { address, connector } = useAccount();
     const { chain } = useNetwork();
     const { data: session, status } = useSession();
     const isLoading = status === 'loading';

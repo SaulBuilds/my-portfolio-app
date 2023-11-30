@@ -9,6 +9,7 @@ import Image from "next/image";
 const AuthOptions: React.FC = () => {
   const { data: session } = useSession();
 
+
   const handleAuth = (provider?: "linkedin" | "github") => {
     if (session) {
       signOut();
