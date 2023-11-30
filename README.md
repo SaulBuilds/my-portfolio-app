@@ -126,3 +126,70 @@ Below is a list of key dependencies used in the project:
 - `next.config.js` configures Next.js specific settings.
 
 This architecture facilitates a scalable, maintainable, and testable application, combining React's component-based approach with Next.js's server-side capabilities, enhanced by Ethereum smart contract interactions.
+
+
+
+CREATE TABLE “references” (
+    id SERIAL PRIMARY KEY,
+    resume_id INTEGER REFERENCES resumes(id),
+    name VARCHAR(255),
+    position VARCHAR(255),
+    company VARCHAR(255),
+    contactInfo VARCHAR(255)
+);
+
+
+CREATE TABLE githubusers (
+  id serial PRIMARY KEY,
+  login VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE
+);    CREATE TABLE resumes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    description TEXT,
+    contact JSONB,
+    skills JSONB
+);
+CREATE TABLE education (
+    id SERIAL PRIMARY KEY,
+    resume_id INTEGER REFERENCES resumes(id),
+    institution VARCHAR(255),
+    degree VARCHAR(255),
+    fieldOfStudy VARCHAR(255),
+    startDate DATE,
+    endDate DATE,
+    description TEXT
+);
+CREATE TABLE work_experience (
+    id SERIAL PRIMARY KEY,
+    resume_id INTEGER REFERENCES resumes(id),
+    company VARCHAR(255),
+    position VARCHAR(255),
+    startDate DATE,
+    endDate DATE,
+    description TEXT
+);
+
+CREATE TABLE certifications (
+    id SERIAL PRIMARY KEY,
+    resume_id INTEGER REFERENCES resumes(id),
+    name VARCHAR(255),
+    issuedBy VARCHAR(255),
+    issueDate DATE,
+    expiryDate DATE
+);
+CREATE TABLE languages (
+    id SERIAL PRIMARY KEY,
+    resume_id INTEGER REFERENCES resumes(id),
+    name VARCHAR(255),
+    proficiencyLevel VARCHAR(255)
+);
+CREATE TABLE references (
+    id SERIAL PRIMARY KEY,
+    resume_id INTEGER REFERENCES resumes(id),
+    name VARCHAR(255),
+    position VARCHAR(255),
+    company VARCHAR(255),
+    contactInfo VARCHAR(255)
+);
+
